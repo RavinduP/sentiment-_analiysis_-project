@@ -1,53 +1,272 @@
-*{
-    font-family: sans-serif;
+/* main.css */
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
+.logo img {
+  height: 80px;
+  margin-right: 0px;
+  margin-top: 5px;  
+  display: flex;
+  align-items: center;
+}
+
+.nav{
+  position:fixed;
+  z-index: 1000;
   top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
+  right: 0;
+  left:0;
+  height: 80px;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items: center;
+  padding: 0 15px 10px;
+  background-color: rgba(255, 255, 255, 0.498) ;
+  box-shadow: 0 40px 150px rgba(223, 147, 7, 0.815);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
-.left {
+.nav .links a {
+  margin-right: 25px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  padding: 0% 5px;
+  text-decoration: none; /* Remove default underline */
+  position: relative; /* Add relative positioning for pseudo-element */
+}
+
+#homec {
+  color: #4F98CA; /* everyone must change that one */
+}
+
+.nav .links a::after {
+  content: '';
+  background: rgba(223, 147, 7, 0.815);
+  width: 0;
+  height: 2px;
+  position: absolute;
+  bottom: -20px;
   left: 0;
+  transition: width 0.5s;
+}
+
+.nav .links a:hover::after, /* Increase width on hover */
+.nav .links a.mainlink::after { /* For the active link */
+  width: 100%;
+}
+
+.navright {
+  display: flex;
+  align-items: center; 
+}
+
+.cart {
+  display: inline-block; 
+  margin-right: 20px;
+  border-radius: 50%;
+  padding: 10px 10px;
+  transition: transform 0.5s; /* Add transition for smooth animation */
+}
+
+.cart:hover {
+  transform: scale(1.3); /* Scale up the cart icon on hover */
+}
+
+.cart a img {
+  height: 30px; 
+  width: auto; 
+  vertical-align: middle; 
+}
+
+
+.signup-login a {
+  text-decoration: none;
+  color: hsl(0, 0%, 0%);
+  font-weight: bold ;
+  padding: 10px 10px;
+  border: 2px solid rgba(223, 147, 7, 0.815);
+  border-radius: 100px;
+  transition: background-color 0.5s, color 0.5s; /* Add transition for background-color and color */
+}
+
+.signup-login .getstart {
+  color: hwb(0 0% 100%);
+  background-color: rgba(223, 147, 7, 0.815);
+  margin-left: 10px;
+}
+
+.signup-login a:hover {
+  background-color: rgba(223, 147, 7, 0.815);
+  color: hsl(0, 0%, 0%);
+}
+
+.signup-login .getstart:hover {
+  background-color: hsl(0, 0%, 100%);
+  color: hwb(0 0% 100%);
+}
+
+
+.product-details {
+  margin-bottom: 0px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-top: 10px;
+  margin-left: 0px;
+}
+
+.price {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.description {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.btnn .su-button {
+  background-color: rgba(223, 147, 7, 0.815);
+  color: #000;
+  border: 1px solid #000;
+}
+
+.btnn .su-button:hover {
+  background-color: rgb(233, 176, 69);
+}
+
+.btn {
+  background-color: #000;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.wishlist {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+
+
+
+/* Basic reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Split screen */
+.split {
+  position: absolute;
+  width: 50%;
+  height: 70%;
+  margin-top: 100px;
+  overflow: hidden;
+}
+ 
+.left {
+  margin-left: 50px;
+  margin-top: 100px;
+  height: 500px;  
+  width: 650px;
+  background-color: hsl(0, 0%, 100%);
+  border: 0px solid rgb(255, 255, 255) ;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.082);
 }
 
 .right {
   right: 0;
+  margin-right: 200px;
+  background-color: #ffffff;
 }
 
-
-.centered {
+/* Centered content */
+.centerd {
   position: absolute;
+  width: 500px; /* Set width */
+  height: 350px; /* Set height */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  object-fit: cover; /* Ensures the image covers the area without stretching */
+  margin-left: 20px; /* Optional: Adds space on the left */
+  margin-right: 20px;
 }
 
-.centered img {
-  width: 100%;
+/* Image styling */
+.split img {
+  max-width: 100%;
+  height: auto;
+}
+/* Container styling */
+.container {
+  margin-top: 10%;
 }
 
 
+
+/* Comment section styling */
+.comment-button {
+  margin-top: 740px;
+  margin-left: 50%;
+  margin-bottom: 100px;
+  height: 1000px;
+  width: 500px;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.253);
+}
+
+.commented-section {
+  padding: 10px;
+}
+
+.commented-user {
+  font-weight: bold;
+}
+
+/* Textarea styling */
 textarea {
   width: 100%;
   height: 100px;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  font-size: 16px;
-  resize: none;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.253);
 }
 
-.comments {
-  text-decoration: underline;
-  text-underline-position: under;
+/* Submit button styling */
+input[type="submit"] {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Label styling */
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
 }
