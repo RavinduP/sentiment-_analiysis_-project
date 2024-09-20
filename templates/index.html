@@ -1,17 +1,43 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>App</title>
+    <link rel="stylesheet" href="app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    
 </head>
 <body>
+    <header>
+        <div class="wrapper">
+            <div class="nav">
+                <div class="logo">
+                    <a href="home.html">
+                        <img src="../static/products/shop.png" alt="logo-img">
+                    </a>
+                </div>
+                <div class="links">
+                    <a class="active" href="home.html">Home</a>
+                    <a class="active" href="shop.html" >Shop</a>
+                    <a class="active" href="aboutus.html">About us</a>
+                    <a class="active" href="feedback.html" id="homec">Feedback</a>
+                    <a class="active" href="Listing Page.html">Review</a>
+                </div>
+                <div class="navright">
+                    <div class="signup-login">     
+                        <a class="getstart" href="signup.html">GET STARTED</a>
+                    </div>
+                </div>    
+            </div>
+        </div>    
+    </header> 
 
+    
+    <!--product image-->
     <div class="split left">
-        <div class="centered">
+        <div class="centerd">
             <img src="../static/products/food.jpg" alt="">
         </div>
     </div>
@@ -20,34 +46,45 @@
         <div class="container mt-5 mb-5">
             <div class="d-flex justify-content-center row">
                 <div class="d-flex flex-column col-md-8">
+                        <!--product details-->
+                    <div class="product-details">
+                        <h1>Classic Italian Lasagna</h1>
+                        <div class="price">$30</div>
+                        <div class="description">
+                            Indulge in layers of rich flavor with our Classic Italian Lasagna. Crafted with fresh, hand-rolled pasta sheets, this mouthwatering dish is packed with savory beef ragu, creamy ricotta, and a blend of melted mozzarella and Parmesan cheese. Baked to perfection, each slice offers a comforting balance of herbs, spices, and tomato sauce. A true Italian favorite that’s perfect for any occasion.
+                        </div>
+                    </div>
+                    <h3>Add Your Feedback</h3>
                     <div>
-                        <label for="">Positive Reviews: {{ data.positive }}</label>
+                        <label for="">Possitive Feedback : {{ data.positive }}</label>
                     </div>
                     <div>
-                        <label for="">Negative Reviews: {{ data.negative }}</label>
+                        <label for="">Nagative Feedback : {{ data.negative }}</label>
                     </div>
                     <div>
-                        <form method="post">
-                          <textarea name="text"></textarea>
-                          <input type="submit">
+                        <form method="post" class="btnn">
+                            <textarea name="text"></textarea>
+                            <input type="submit" value="Submit" class="su-button">
                         </form>
-                    </div>
-                    <div class="coment-bottom bg-white p-2 px-4">
-                        {% for review in data.reviews %}
-                        <hr/>
-                          <div
-                              class="commented-section mt-2">
-                              <div class="d-flex flex-row align-items-center commented-user">
-                                  </div>
-                                  <div class="text-nowrap bd-highlight"><span>{{ review }}</span></div>
-                                  <hr/>
-                        {% endfor %}
-                      </div>
+                    </div>                    
                 </div>
             </div>
         </div>
     </div>
-            
-
+    <div class="comment-button bg-white p-2 px-4">
+        {% for review in data.reviews %}
+        
+        <div>
+            <div class="commented-section mt-2">
+                <div class="d-flex flex-row align-items-center commented-user">
+                    <!-- Add any user-related info or icons here -->
+                </div>
+                <div class="text-nowrap bd-highlight"><span>{{ review }}</span></div>
+            </div>
+            <hr/>
+        </div>
+        {% endfor %}
+    </div>
+    
 </body>
 </html>
